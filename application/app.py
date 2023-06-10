@@ -1,7 +1,7 @@
 import os
+import time
 from google.cloud import pubsub_v1
 from concurrent.futures import TimeoutError
-import time
 
 PUB_SUB_TOPIC = os.environ['PUB_SUB_TOPIC']
 PUB_SUB_PROJECT = os.environ['PUB_SUB_PROJECT']
@@ -17,9 +17,8 @@ def process_payload(message):
 def consume_message(project, subscription, process_payload, period):
         subscriber = pubsub_v1.SubscriberClient()
         subscription_path = subscriber.subscription_path(project, subscription)
-        print(f"Listening for messages on {subscription_path}..\n")
+        print(f"Listening for messages on {subscription_path} \n")
         streaming_pull_future = subscriber.subscribe(subscription_path, callback=process_payload)
-        # Wrap subscriber in a 'with' block to automatically call close() when done.
         with subscriber:
             try:
                 streaming_pull_future.result(timeout=period)
