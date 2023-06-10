@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    iam.gke.io/gcp-service-account: keda-demo@$GCP_PROJECT_ID.iam.gserviceaccount.com
+  name: keda-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keda-demo
+spec:
+  selector:
+    matchLabels:
+      app: keda-demo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: keda-demo
+    spec:
+      serviceAccountName: keda-demo
+      containers:
+      - image: simbu1290/keda-demo:v1
+        name: consumer
+        env:
+        - name: PUB_SUB_PROJECT
+          value: $GCP_PROJECT_ID
+        - name: PUB_SUB_TOPIC
+          value: "keda-demo-topic"
+        - name: PUB_SUB_SUBSCRIPTION
+          value: "keda-demo-topic-subscription"
