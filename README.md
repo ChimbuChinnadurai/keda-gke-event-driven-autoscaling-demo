@@ -218,4 +218,5 @@ KEDA will automatically scale the number of replicas to zero when no messages ar
 
 Use the below script to publish test messages to the topic and observe the scaling actions performed by HPA based on the metrics provided by KEDA.
 
-https://vimeo.com/834982934
+<iframe src="https://player.vimeo.com/video/834982934?h=b121a43264" width="640" height="399" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/834982934">Keda scaling demo</a> from <a href="https://vimeo.com/user184559895">Chimbu Chinnadurai</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
