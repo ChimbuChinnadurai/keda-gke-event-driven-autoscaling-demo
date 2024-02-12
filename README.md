@@ -216,7 +216,9 @@ EOF
 Now we can send some messages and see if our deployment scales! Use the script `generate-message.sh` to send messages to the queue and monitor the deployment.
 KEDA will automatically scale the number of replicas to zero when no messages are available in the queue.
 
-Use the below script to publish test messages to the topic and observe the scaling actions performed by HPA based on the metrics provided by KEDA.
+## Demo
 
-<iframe src="https://player.vimeo.com/video/834982934?h=b121a43264" width="640" height="399" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/834982934">Keda scaling demo</a> from <a href="https://vimeo.com/user184559895">Chimbu Chinnadurai</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+https://github.com/ChimbuChinnadurai/keda-gke-event-driven-autoscaling-demo/assets/46873109/6c50e633-702c-48c1-a4b0-61ae4e7123da
+
+
+
